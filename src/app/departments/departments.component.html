@@ -1,17 +1,30 @@
+<div class="container" style="border-bottom: 0px; height: 50px;">
+    <div class="item input-group">
+        <input type="text" placeholder="Search..." [(ngModel)]="keyw" (keyup.enter)="searchDepart(keyw)">
+        <div class="input-group-btn">
+            <button class="btn btn-default searchBtn" (click)="searchDepart(keyw)">
+                <i class="fas fa-search "></i>
+            </button>
+        </div>
+    </div>
+    <button class="item btn btn-default addBtn" style="max-width: 90px;">ADD
+        <i class="fas fa-plus"></i>
+    </button>
+</div>
 <div class="container" style="color: #CF2212; font-size: 30px">
     <div class="item">NAME</div>
     <div class="item">ADDRESS</div>
-    <div class="item">DAYSTART</div>
+    <div class="item">OPENDAY</div>
 </div>
 <div class="container" *ngFor="let department of departments">
     <div class="item data name">{{ department.TenChiNhanh | uppercase }}</div>
     <div class="item data address">{{ department.DiaChi }}</div>
-    <div class="item data dayStart">{{ department.TenChiNhanh | uppercase }}</div>
+    <div class="item data dayStart">{{ department.NgayThanhLap | date }}</div>
     <div class="item data action">
-        <button class="girdBtn" (click)='changeToGrid()'>
+        <button class="delBtn" (click)='delDepartment(department)'>
             <i class="fas fa-trash-alt"></i>
         </button>
-        <button class="listBtn" (click)='changeToList()'>
+        <button class="editBtn" (click)='editDepartment()'>
             <i class="fas fa-edit"></i>
         </button>
     </div>

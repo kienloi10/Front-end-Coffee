@@ -3,10 +3,12 @@ import { IDepartment } from './../../core/models/IDepartment';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Http } from '@angular/http';
+import { Identifiers } from '@angular/compiler';
 
 @Injectable()
 export class DepartmentsService {
   private _departments: BehaviorSubject<Array<IDepartment>> = new BehaviorSubject(new Array());
+  private department: IDepartment;
   get departments() {
     return this._departments.asObservable();
   }
@@ -16,18 +18,21 @@ export class DepartmentsService {
   }
   private getDepartmentsFromServer() {
    
-    this.http.get('http://localhost:4147/api/ChiNhanh/GetAll').subscribe(res => {
+  this.http.get('http://localhost:4147/api/ChiNhanh/GetAll').subscribe(res => {
             const departments = res.json();
             this._departments.next(departments);
         }); 
-
-
+        
+  }
+  removeDepartment(id: number) {
+    return this.http.delete('http://localhost:4147/api/ChiNhanh/Delete/' + id).subscribe(() => {
+        const index = this._departments.getValue().findIndex(b => b.Id === id);
+        this._departments.getValue().splice(index, 1);
+        this._departments.next(this._departments.getValue());
+    })
+  }
+  searchDepart(keyw: string) {
     
-    }
-
-//   searchBook (keyword: string) {
-//     const departments = this.getDepartmentsFromServer().filter(p => p.title.toLowerCase().includes(keyword.toLowerCase()));
-//     this._departments.next(departments);
-//   }
+  }
 }
 

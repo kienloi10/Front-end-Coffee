@@ -9,6 +9,7 @@ import { IDepartment } from '../core/models/IDepartment';
 })
 export class DepartmentsComponent implements OnInit {
   departments: IDepartment[];
+  private keyw: string;
   constructor(private _departmentsService: DepartmentsService) { }
 
   ngOnInit() {
@@ -18,4 +19,11 @@ export class DepartmentsComponent implements OnInit {
     });
   }
 
+  delDepartment(depart: IDepartment) {
+     this._departmentsService.removeDepartment(depart.Id);
+    console.log(depart.Id );
+  }
+  searchDepart(keyw: string) {
+    
+  }
 }

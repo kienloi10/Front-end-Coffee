@@ -5,6 +5,30 @@ $color-logo : #CF2212;
 h1 {
     text-align: center;
 }
+input {
+    border-radius: 12px;
+}
+.searchBtn {
+    border: #CF2212 1px solid; 
+    color: black;
+    width: 80px;
+    border-radius: 12px;
+    background-color: white;
+}
+.addBtn {
+    border: #CF2212 1px solid; 
+    color: black;
+    width: 80px;
+    border-radius: 12px;
+    background-color: white;
+    font-weight: bold;
+}
+.searchBtn:hover {
+    color: $color-logo;
+}
+.addBtn:hover{
+    color: $color-logo;
+}
 .container {
     display: flex;
     font-size: 20px;
@@ -12,13 +36,15 @@ h1 {
     margin: 10px;
     padding-top: 10px;
     border-bottom: 1px $color-logo solid;
+    cursor: pointer;
+
     .item {  
         min-width: 280px;
         .data {
             flex-grow: 1;
         }
     }
-    .listBtn {
+    .editBtn {
         float: right;
         height: 40px;
         margin: 0px;
@@ -33,7 +59,7 @@ h1 {
         border-bottom-left-radius:42px;
         cursor: pointer;
     }
-    .girdBtn {
+    .delBtn {
         float: right;
         height: 40px;
         width: 70px;
@@ -47,6 +73,12 @@ h1 {
         -moz-border-radius-bottomright:25px;
         border-bottom-right-radius:25px;
         cursor: pointer;
+    }
+    .editBtn:hover {
+        color: $color-logo;
+    }
+    .delBtn:hover {
+        color: $color-logo;
     }
 }
 

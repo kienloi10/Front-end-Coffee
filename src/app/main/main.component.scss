@@ -26,3 +26,8 @@ ng-sidebar {
 .content {
     padding-left: 200px;
 }
+@media only screen and (max-width: 1440px) {
+    .content {
+        padding-left: 0px;
+    }
+}
