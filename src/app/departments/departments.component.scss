@@ -1,0 +1,52 @@
+$color-logo : #CF2212;
+:host {
+    margin: 0px;
+}
+h1 {
+    text-align: center;
+}
+.container {
+    display: flex;
+    font-size: 20px;
+    height: 70px;
+    margin: 10px;
+    padding-top: 10px;
+    border-bottom: 1px $color-logo solid;
+    .item {  
+        min-width: 280px;
+        .data {
+            flex-grow: 1;
+        }
+    }
+    .listBtn {
+        float: right;
+        height: 40px;
+        margin: 0px;
+        width: 70px;
+        background-color: white;
+        border: 1px $color-logo solid;
+        -webkit-border-top-left-radius:42px;
+        -moz-border-radius-topleft:42px;
+        border-top-left-radius:42px;
+        -webkit-border-bottom-left-radius:42px;
+        -moz-border-radius-bottomleft:42px;
+        border-bottom-left-radius:42px;
+        cursor: pointer;
+    }
+    .girdBtn {
+        float: right;
+        height: 40px;
+        width: 70px;
+        margin: 0px;
+        background-color: white;
+        border: 1px $color-logo solid;
+        -webkit-border-top-right-radius:25px;
+        -moz-border-radius-topright:25px;
+        border-top-right-radius:25px;
+        -webkit-border-bottom-right-radius:25px;
+        -moz-border-radius-bottomright:25px;
+        border-bottom-right-radius:25px;
+        cursor: pointer;
+    }
+}
+

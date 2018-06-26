@@ -1,0 +1,10 @@
+<div>
+  <img [routerLink]="['/home']" class="logo" src="assets/HighlandsCoffee_logo.jpg" alt="" />
+  <button  *ngIf='!login' class="loginButton" [routerLink]="['/login']">
+    SIGN IN
+  </button>
+  <span>HIGH LANDS COFFEE</span>
+  <button *ngIf='login' class="loginButton">
+    USER
+  </button>
+</div>

@@ -1,0 +1,18 @@
+<div class="container" style="color: #CF2212; font-size: 30px">
+    <div class="item">NAME</div>
+    <div class="item">ADDRESS</div>
+    <div class="item">DAYSTART</div>
+</div>
+<div class="container" *ngFor="let department of departments">
+    <div class="item data name">{{ department.TenChiNhanh | uppercase }}</div>
+    <div class="item data address">{{ department.DiaChi }}</div>
+    <div class="item data dayStart">{{ department.TenChiNhanh | uppercase }}</div>
+    <div class="item data action">
+        <button class="girdBtn" (click)='changeToGrid()'>
+            <i class="fas fa-trash-alt"></i>
+        </button>
+        <button class="listBtn" (click)='changeToList()'>
+            <i class="fas fa-edit"></i>
+        </button>
+    </div>
+</div>
