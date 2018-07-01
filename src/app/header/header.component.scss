@@ -10,12 +10,14 @@ div {
     }
 }
 .logo {
+    outline: none;
     float: left;
     height: 100px;
     width: 200px;
     cursor: pointer;
 }
 .loginButton {
+    outline: none;
     height: 60px;
     width: 150px;
     float: right;

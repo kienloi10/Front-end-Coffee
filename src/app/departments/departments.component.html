@@ -7,9 +7,31 @@
             </button>
         </div>
     </div>
-    <button class="item btn btn-default addBtn" style="max-width: 90px;">ADD
+    <button class="item btn btn-default addBtn" data-toggle="modal" data-target="#myModal" style="max-width: 90px;">ADD
         <i class="fas fa-plus"></i>
     </button>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Department Informations</h4>
+                </div>
+                <div class="modal-body">          
+                        <p class="row"><span class="col-md-3">ID:</span><input class="col-md-8" [(ngModel)]="departAdding.ChiNhanhId" type="text" placeholder="Ex: ..."></p>
+                    <p class="row"><span class="col-md-3">Name:</span><input class="col-md-8" [(ngModel)]="departAdding.TenChiNhanh" type="text" placeholder="Ex: HighLands Ha Noi"></p>
+                    <p class="row"><span class="col-md-3">Address:</span><input class="col-md-8" [(ngModel)]="departAdding.DiaChi" type="text" placeholder="Ex: 12 Hai Ba Trung"></p>
+                    <p class="row"><span class="col-md-3">Open Day:</span><input class="col-md-8" [(ngModel)]="departAdding.NgayThanhLap" type="date"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="addDepartment(departAdding)">Confirm</button>
+                    <button type="button" class="closeBtn btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 <div class="container" style="color: #CF2212; font-size: 30px">
     <div class="item">NAME</div>

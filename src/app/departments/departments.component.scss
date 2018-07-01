@@ -6,9 +6,11 @@ h1 {
     text-align: center;
 }
 input {
+    outline: none;
     border-radius: 12px;
 }
 .searchBtn {
+    outline: none;
     border: #CF2212 1px solid; 
     color: black;
     width: 80px;
@@ -80,5 +82,11 @@ input {
     .delBtn:hover {
         color: $color-logo;
     }
+    .closeBtn {
+        background-color: #CF2212;
+        color: white;
+    }
+    .modal-body {
+        margin-bottom: 10px;
+    }
 }
-

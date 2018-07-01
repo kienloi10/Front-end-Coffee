@@ -17,22 +17,26 @@ export class DepartmentsService {
     return this.getDepartmentsFromServer();
   }
   private getDepartmentsFromServer() {
-   
-  this.http.get('http://localhost:4147/api/ChiNhanh/GetAll').subscribe(res => {
-            const departments = res.json();
-            this._departments.next(departments);
-        }); 
-        
+    this.http.get('http://localhost:4147/api/ChiNhanh/GetAll').subscribe(res => {
+      const departments = res.json();
+      this._departments.next(departments);
+    });
   }
   removeDepartment(id: number) {
     return this.http.delete('http://localhost:4147/api/ChiNhanh/Delete/' + id).subscribe(() => {
-        const index = this._departments.getValue().findIndex(b => b.Id === id);
-        this._departments.getValue().splice(index, 1);
-        this._departments.next(this._departments.getValue());
-    })
+      const index = this._departments.getValue().findIndex(b => b.Id === id);
+      this._departments.getValue().splice(index, 1);
+      this._departments.next(this._departments.getValue());
+    });
+  }
+  createDepartment(departAdd: IDepartment) {
+    return this.http.post('', departAdd).subscribe(() => {
+      this._departments.getValue().push(departAdd);
+      const newDepart = this._departments.getValue();
+      this._departments.next(newDepart);
+    });
   }
   searchDepart(keyw: string) {
-    
+
   }
 }
-
