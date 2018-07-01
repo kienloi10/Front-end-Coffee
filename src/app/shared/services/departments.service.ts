@@ -30,7 +30,7 @@ export class DepartmentsService {
     });
   }
   createDepartment(departAdd: IDepartment) {
-    return this.http.post('', departAdd).subscribe(() => {
+    return this.http.post('http://localhost:4147/api/ChiNhanh/create', departAdd).subscribe(() => {
       this._departments.getValue().push(departAdd);
       const newDepart = this._departments.getValue();
       this._departments.next(newDepart);
@@ -39,4 +39,5 @@ export class DepartmentsService {
   searchDepart(keyw: string) {
 
   }
+
 }
