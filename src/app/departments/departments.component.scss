@@ -32,20 +32,13 @@ input {
     color: $color-logo;
 }
 .container {
-    display: flex;
-    font-size: 20px;
+    // display: flex;
+    font-size: 15px;
     height: 70px;
     margin: 10px;
     padding-top: 10px;
     border-bottom: 1px $color-logo solid;
     cursor: pointer;
-
-    .item {  
-        min-width: 280px;
-        .data {
-            flex-grow: 1;
-        }
-    }
     .editBtn {
         float: right;
         height: 40px;

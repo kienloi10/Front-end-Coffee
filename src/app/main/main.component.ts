@@ -25,4 +25,5 @@ export class MainComponent implements OnInit {
   employ() {
     this.route.navigate(['/home/employees']);
   }
+  
 }

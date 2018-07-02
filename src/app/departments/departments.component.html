@@ -1,15 +1,17 @@
 <div class="container" style="border-bottom: 0px; height: 50px;">
-    <div class="item input-group">
-        <input type="text" placeholder="Search..." [(ngModel)]="keyw" (keyup.enter)="searchDepart(keyw)">
-        <div class="input-group-btn">
-            <button class="btn btn-default searchBtn" (click)="searchDepart(keyw)">
-                <i class="fas fa-search "></i>
-            </button>
+    <div class="row">
+        <div class="input-group col-md-6">
+            <input type="text" placeholder="Search..." [(ngModel)]="keyw" (keyup.enter)="searchDepart(keyw)">
+            <div class="input-group-btn">
+                <button class="btn btn-default searchBtn" (click)="searchDepart(keyw)">
+                    <i class="fas fa-search "></i>
+                </button>
+            </div>
         </div>
+        <button class="btn btn-default addBtn col-md-6" data-toggle="modal" data-target="#myModal" style="max-width: 90px;">ADD
+            <i class="fas fa-plus"></i>
+        </button>
     </div>
-    <button class="item btn btn-default addBtn" data-toggle="modal" data-target="#myModal" style="max-width: 90px;">ADD
-        <i class="fas fa-plus"></i>
-    </button>
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -18,11 +20,23 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Department Informations</h4>
                 </div>
-                <div class="modal-body">          
-                        <p class="row"><span class="col-md-3">ID:</span><input class="col-md-8" [(ngModel)]="departAdding.ChiNhanhId" type="text" placeholder="Ex: ..."></p>
-                    <p class="row"><span class="col-md-3">Name:</span><input class="col-md-8" [(ngModel)]="departAdding.TenChiNhanh" type="text" placeholder="Ex: HighLands Ha Noi"></p>
-                    <p class="row"><span class="col-md-3">Address:</span><input class="col-md-8" [(ngModel)]="departAdding.DiaChi" type="text" placeholder="Ex: 12 Hai Ba Trung"></p>
-                    <p class="row"><span class="col-md-3">Open Day:</span><input class="col-md-8" [(ngModel)]="departAdding.NgayThanhLap" type="date"></p>
+                <div class="modal-body">
+                    <p class="row">
+                        <span class="col-md-3">ID:</span>
+                        <input class="col-md-8" [(ngModel)]="departAdding.ChiNhanhId" type="text" placeholder="Ex: ...">
+                    </p>
+                    <p class="row">
+                        <span class="col-md-3">Name:</span>
+                        <input class="col-md-8" [(ngModel)]="departAdding.TenChiNhanh" type="text" placeholder="Ex: HighLands Ha Noi">
+                    </p>
+                    <p class="row">
+                        <span class="col-md-3">Address:</span>
+                        <input class="col-md-8" [(ngModel)]="departAdding.DiaChi" type="text" placeholder="Ex: 12 Hai Ba Trung">
+                    </p>
+                    <p class="row">
+                        <span class="col-md-3">Open Day:</span>
+                        <input class="col-md-8" [(ngModel)]="departAdding.NgayThanhLap" type="date">
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" (click)="addDepartment(departAdding)">Confirm</button>
@@ -34,20 +48,60 @@
     </div>
 </div>
 <div class="container" style="color: #CF2212; font-size: 30px">
-    <div class="item">NAME</div>
-    <div class="item">ADDRESS</div>
-    <div class="item">OPENDAY</div>
+    <div class="row">
+        <div class="col-md-2">ID</div>
+        <div class="col-md-2">NAME</div>
+        <div class="col-md-2">ADDRESS</div>
+        <div class="col-md-2">OPENDAY</div>
+    </div>
 </div>
 <div class="container" *ngFor="let department of departments">
-    <div class="item data name">{{ department.TenChiNhanh | uppercase }}</div>
-    <div class="item data address">{{ department.DiaChi }}</div>
-    <div class="item data dayStart">{{ department.NgayThanhLap | date }}</div>
-    <div class="item data action">
-        <button class="delBtn" (click)='delDepartment(department)'>
-            <i class="fas fa-trash-alt"></i>
-        </button>
-        <button class="editBtn" (click)='editDepartment()'>
-            <i class="fas fa-edit"></i>
-        </button>
+    <div class="row">
+        <div class="col-md-2">{{ department.ChiNhanhId }}</div>
+        <div class="col-md-2 name">{{ department.TenChiNhanh | uppercase }}</div>
+        <div class="col-md-2 address">{{ department.DiaChi }}</div>
+        <div class="col-md-2 dayStart">{{ department.NgayThanhLap | date }}</div>
+        <div class="col-md-2 action">
+            <button class="delBtn" (click)='delDepartment(department)'>
+                <i class="fas fa-trash-alt"></i>
+            </button>
+            <button class="editBtn" (click)='getByIdDepartment(department)' data-toggle="modal" data-target="#myEditModal" style="max-width: 90px;">
+                <i class="fas fa-edit"></i>
+            </button>
+            <div id="myEditModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Edit Department Informations</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p class="row">
+                                <span class="col-md-3">ID:</span>
+                                <input class="col-md-8" type="text">
+                            </p>
+                            <p class="row">
+                                <span class="col-md-3">Name:</span>
+                                <input class="col-md-8" type="text">
+                            </p>
+                            <p class="row">
+                                <span class="col-md-3">Address:</span>
+                                <input class="col-md-8" type="text">
+                            </p>
+                            <p class="row">
+                                <span class="col-md-3">Open Day:</span>
+                                <input class="col-md-8"  type="date">
+                            </p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Confirm</button>
+                            <button type="button" class="closeBtn btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

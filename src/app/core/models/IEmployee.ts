@@ -1,9 +1,10 @@
-export interface IDepartment {
-    id?: string;
-    name: String;
-    address: String;
-    birthday: Date;
-    sex: String;
-    position: String;
-    departmentID: String;
+export interface IEmployee {
+    Id?: string;
+    NhanVienId: number;
+    HoTen: String;
+    DiaChi: String;
+    NgaySinh: Date;
+    GioiTinh: String;
+    LoaiNhanVienId : number;
+    ChiNhanhId: number;
 }

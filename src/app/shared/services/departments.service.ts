@@ -22,6 +22,13 @@ export class DepartmentsService {
       this._departments.next(departments);
     });
   }
+  getDepartmentsByIdFromServer(id:number) {
+    this.http.get('http://localhost:4147/api/ChiNhanh/GetById/' +id).subscribe(res => {
+      const departments = res.json();
+      this._departments.next(departments);
+    });
+  }
+
   removeDepartment(id: number) {
     return this.http.delete('http://localhost:4147/api/ChiNhanh/Delete/' + id).subscribe(() => {
       const index = this._departments.getValue().findIndex(b => b.Id === id);
@@ -32,6 +39,13 @@ export class DepartmentsService {
   createDepartment(departAdd: IDepartment) {
     return this.http.post('http://localhost:4147/api/ChiNhanh/create', departAdd).subscribe(() => {
       this._departments.getValue().push(departAdd);
+      const newDepart = this._departments.getValue();
+      this._departments.next(newDepart);
+    });
+  }
+  editDepartment(departEdit: IDepartment) {
+    return this.http.put('http://localhost:4147/api/chinhanh/update', departEdit).subscribe(() => {
+      this._departments.getValue().push(departEdit);
       const newDepart = this._departments.getValue();
       this._departments.next(newDepart);
     });

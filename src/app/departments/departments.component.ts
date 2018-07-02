@@ -9,6 +9,7 @@ import { IDepartment } from '../core/models/IDepartment';
 })
 export class DepartmentsComponent implements OnInit {
   departments: IDepartment[];
+  editDepartments: IDepartment[];
   chooseDeparts: IDepartment[];
   departAdding: IDepartment = {
     Id: 0,
@@ -28,6 +29,19 @@ export class DepartmentsComponent implements OnInit {
     });
   }
 
+  getByIdDepartment(depart: IDepartment){
+    console.log(depart.Id);
+    this._departmentsService.getDepartmentsByIdFromServer(depart.Id);
+    
+    this._departmentsService.departments.subscribe(departments => {
+    this.editDepartments = departments;
+      
+    });
+    console.log(depart.ChiNhanhId);
+    console.log(depart.DiaChi);
+    console.log(depart.TenChiNhanh);
+    console.log(depart.NgayThanhLap);
+  }
   delDepartment(depart: IDepartment) {
      this._departmentsService.removeDepartment(depart.Id);
     console.log(depart.Id);
