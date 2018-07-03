@@ -2,7 +2,7 @@
     <div class="row">
         <!-- input search -->
         <div class="input-group col-md-11">
-            <input type="text" placeholder="Search...">
+            <input type="text" placeholder="Search..." [(ngModel)]="keyw" (keyup.enter)="searchEmploy(keyw)">
             <div class="input-group-btn">
                 <button class="btn btn-default searchBtn rainbow rainbow-1">
                     <i class="fas fa-search "></i>

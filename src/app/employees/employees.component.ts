@@ -10,13 +10,22 @@ import { IEmployee } from '../core/models/IEmployee';
 export class EmployeesComponent implements OnInit {
 
   employees: IEmployee[];
+  chooseEmployees: IEmployee[];
+
   constructor(private _employeesService: EmployeesService) { }
 
   ngOnInit() {
     this._employeesService.getEmployees();
     this._employeesService.employees.subscribe(employees => {
     this.employees = employees;
+    this.chooseEmployees = employees;  
+    
     });
   }
+
+  searchEmploy(keyw: string){
+    this.employees = this.chooseEmployees.filter(employ => employ.HoTen.toLowerCase().includes(keyw.toLowerCase()));
+  }
+
 
 }
