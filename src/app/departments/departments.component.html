@@ -1,14 +1,16 @@
 <div class="container" style="border-bottom: 0px; height: 50px;">
     <div class="row">
-        <div class="input-group col-md-6">
+        <!-- input search -->
+        <div class="input-group col-md-11">
             <input type="text" placeholder="Search..." [(ngModel)]="keyw" (keyup.enter)="searchDepart(keyw)">
             <div class="input-group-btn">
-                <button class="btn btn-default searchBtn" (click)="searchDepart(keyw)">
+                <button class="btn btn-default searchBtn rainbow rainbow-1" (click)="searchDepart(keyw)">
                     <i class="fas fa-search "></i>
                 </button>
             </div>
         </div>
-        <button class="btn btn-default addBtn col-md-6" data-toggle="modal" data-target="#myModal" style="max-width: 90px;">ADD
+        <!-- button add -->
+        <button class="btn btn-default addBtn col-md-1" data-toggle="modal" data-target="#myModal" style="max-width: 90px;">ADD
             <i class="fas fa-plus"></i>
         </button>
     </div>
@@ -47,20 +49,23 @@
         </div>
     </div>
 </div>
+<!-- column header -->
 <div class="container" style="color: #CF2212; font-size: 30px">
     <div class="row">
-        <div class="col-md-2">ID</div>
-        <div class="col-md-2">NAME</div>
-        <div class="col-md-2">ADDRESS</div>
+        <div class="col-md-1">ID</div>
+        <div class="col-md-3">NAME</div>
+        <div class="col-md-4">ADDRESS</div>
         <div class="col-md-2">OPENDAY</div>
     </div>
 </div>
+<!-- column data -->
 <div class="container" *ngFor="let department of departments">
     <div class="row">
-        <div class="col-md-2">{{ department.ChiNhanhId }}</div>
-        <div class="col-md-2 name">{{ department.TenChiNhanh | uppercase }}</div>
-        <div class="col-md-2 address">{{ department.DiaChi }}</div>
-        <div class="col-md-2 dayStart">{{ department.NgayThanhLap | date }}</div>
+        <div class="col-md-1">{{ department.ChiNhanhId }}</div>
+        <div class="col-md-3">{{ department.TenChiNhanh | uppercase }}</div>
+        <div class="col-md-4">{{ department.DiaChi }}</div>
+        <div class="col-md-2">{{ department.NgayThanhLap | date }}</div>
+        <!-- edit and delete button -->
         <div class="col-md-2 action">
             <button class="delBtn" (click)='delDepartment(department)'>
                 <i class="fas fa-trash-alt"></i>
@@ -91,7 +96,7 @@
                             </p>
                             <p class="row">
                                 <span class="col-md-3">Open Day:</span>
-                                <input class="col-md-8"  type="date">
+                                <input class="col-md-8" type="date">
                             </p>
 
                         </div>

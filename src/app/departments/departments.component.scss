@@ -25,14 +25,18 @@ input {
     background-color: white;
     font-weight: bold;
 }
-.searchBtn:hover {
-    color: $color-logo;
-}
 .addBtn:hover{
-    color: $color-logo;
+    color: white;
+    background-color: $color-logo;
+}
+.searchBtn:hover {
+    color: white;
+}
+.rainbow-1:hover{
+    background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+    animation:slidebg 4s linear infinite;
 }
 .container {
-    // display: flex;
     font-size: 15px;
     height: 70px;
     margin: 10px;
@@ -81,5 +85,10 @@ input {
     }
     .modal-body {
         margin-bottom: 10px;
+    }
+}
+@keyframes slidebg {
+    to {
+      background-position:20vw;
     }
 }

@@ -29,13 +29,11 @@ export class DepartmentsComponent implements OnInit {
     });
   }
 
-  getByIdDepartment(depart: IDepartment){
+  getByIdDepartment(depart: IDepartment) {
     console.log(depart.Id);
     this._departmentsService.getDepartmentsByIdFromServer(depart.Id);
-    
     this._departmentsService.departments.subscribe(departments => {
     this.editDepartments = departments;
-      
     });
     console.log(depart.ChiNhanhId);
     console.log(depart.DiaChi);
