@@ -1,7 +1,7 @@
 <div class="container" style="border-bottom: 0px; height: 50px;">
     <div class="row">
         <!-- input search -->
-        <div class="input-group col-md-11">
+        <div class="input-group col-md-8">
             <input type="text" placeholder="Search..." [(ngModel)]="keyw" (keyup.enter)="searchDepart(keyw)">
             <div class="input-group-btn">
                 <button class="btn btn-default searchBtn rainbow rainbow-1" (click)="searchDepart(keyw)">
@@ -10,9 +10,12 @@
             </div>
         </div>
         <!-- button add -->
-        <button class="btn btn-default addBtn col-md-1" data-toggle="modal" data-target="#myModal" style="max-width: 90px;">ADD
-            <i class="fas fa-plus"></i>
-        </button>
+        <div class="col-md-2">
+            <button class="btn btn-default addBtn" data-toggle="modal" data-target="#myModal" style="width: 140px;">ADD
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+
     </div>
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -53,8 +56,8 @@
 <div class="container" style="color: #CF2212; font-size: 30px">
     <div class="row">
         <div class="col-md-1">ID</div>
-        <div class="col-md-3">NAME</div>
-        <div class="col-md-4">ADDRESS</div>
+        <div class="col-md-2">NAME</div>
+        <div class="col-md-3">ADDRESS</div>
         <div class="col-md-2">OPENDAY</div>
     </div>
 </div>
@@ -62,8 +65,8 @@
 <div class="container" *ngFor="let department of departments">
     <div class="row">
         <div class="col-md-1">{{ department.ChiNhanhId }}</div>
-        <div class="col-md-3">{{ department.TenChiNhanh | uppercase }}</div>
-        <div class="col-md-4">{{ department.DiaChi }}</div>
+        <div class="col-md-2">{{ department.TenChiNhanh | uppercase }}</div>
+        <div class="col-md-3">{{ department.DiaChi }}</div>
         <div class="col-md-2">{{ department.NgayThanhLap | date }}</div>
         <!-- edit and delete button -->
         <div class="col-md-2 action">

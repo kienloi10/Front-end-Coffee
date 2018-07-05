@@ -1,10 +1,10 @@
 export interface IEmployee {
-    Id: String;
+    Id: Number;
     NhanVienId: Number;
     HoTen: String;
     DiaChi: String;
     NgaySinh: Date;
-    GioiTinh: String;
+    GioiTinh: Boolean;
     LoaiNhanVienId: Number;
     ChiNhanhId: Number;
 }

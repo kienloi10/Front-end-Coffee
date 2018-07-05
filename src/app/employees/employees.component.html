@@ -66,9 +66,10 @@
         <div class="col-md-1">{{ employee.HoTen | uppercase }}</div>
         <div class="col-md-2">{{ employee.DiaChi }}</div>
         <div class="col-md-2">{{ employee.NgaySinh | date }}</div>
-        <div class="col-md-1">{{ employee.GioiTinh }}</div>
-        <div class="col-md-2">{{ employee.LoaiNhanVienId }}</div>
+        <div class="col-md-1">{{ employee.GioiTinh | sexPipe }}</div>
+        <div class="col-md-2">{{ kindEmploys | positionPipe: employee.LoaiNhanVienId }}</div>
         <div class="col-md-1">{{ employee.ChiNhanhId }}</div>
+        
         <div class="col-md-2 action">
             <button class="delBtn">
                 <i class="fas fa-trash-alt"></i>

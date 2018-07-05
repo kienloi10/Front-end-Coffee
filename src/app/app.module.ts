@@ -15,6 +15,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SidebarModule } from 'ng-sidebar';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeesService } from './shared/services/employees.service';
+import { SexPipe } from './shared/pipes/sex.pipe';
+import { kindEmployService } from './shared/services/kindEmploy.service';
+import { PositionPipe } from './shared/pipes/position.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { EmployeesService } from './shared/services/employees.service';
     DepartmentsComponent,
     HeaderComponent,
     MainComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    SexPipe,
+    PositionPipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,7 @@ import { EmployeesService } from './shared/services/employees.service';
     BrowserAnimationsModule,
     SidebarModule.forRoot()
   ],
-  providers: [DepartmentsService,EmployeesService],
+  providers: [DepartmentsService, EmployeesService, kindEmployService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
