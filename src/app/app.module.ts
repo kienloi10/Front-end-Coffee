@@ -1,3 +1,4 @@
+import { DepartmentPipe } from './shared/pipes/department.pipe';
 import { DepartmentsService } from './shared/services/departments.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -28,7 +29,8 @@ import { PositionPipe } from './shared/pipes/position.pipe';
     MainComponent,
     EmployeesComponent,
     SexPipe,
-    PositionPipe
+    PositionPipe,
+    DepartmentPipe
   ],
   imports: [
     BrowserModule,

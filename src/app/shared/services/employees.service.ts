@@ -29,20 +29,20 @@ export class EmployeesService {
 //     });
 //   }
 
-//   removeDepartment(id: number) {
-//     return this.http.delete('http://localhost:4147/api/ChiNhanh/Delete/' + id).subscribe(() => {
-//       const index = this._departments.getValue().findIndex(b => b.Id === id);
-//       this._departments.getValue().splice(index, 1);
-//       this._departments.next(this._departments.getValue());
-//     });
-//   }
-//   createDepartment(departAdd: IDepartment) {
-//     return this.http.post('http://localhost:4147/api/ChiNhanh/create', departAdd).subscribe(() => {
-//       this._departments.getValue().push(departAdd);
-//       const newDepart = this._departments.getValue();
-//       this._departments.next(newDepart);
-//     });
-//   }
+  removeEmployee(id: number) {
+    return this.http.delete('http://localhost:4147/api/nhanvien/Delete/' + id).subscribe(() => {
+      const index = this._employees.getValue().findIndex(b => b.Id === id);
+      this._employees.getValue().splice(index, 1);
+      this._employees.next(this._employees.getValue());
+    });
+  }
+  createDepartment(enployAdd: IEmployee) {
+    return this.http.post('http://localhost:4147/api/ChiNhanh/create', enployAdd).subscribe(() => {
+      this._employees.getValue().push(enployAdd);
+      const newEmploy = this._employees.getValue();
+      this._employees.next(newEmploy);
+    });
+  }
 //   editDepartment(departEdit: IDepartment) {
 //     return this.http.put('http://localhost:4147/api/chinhanh/update', departEdit).subscribe(() => {
 //       this._departments.getValue().push(departEdit);

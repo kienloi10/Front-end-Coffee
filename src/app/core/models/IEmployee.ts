@@ -1,5 +1,5 @@
 export interface IEmployee {
-    Id: Number;
+    Id: number;
     NhanVienId: Number;
     HoTen: String;
     DiaChi: String;

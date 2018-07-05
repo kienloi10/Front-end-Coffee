@@ -1,3 +1,5 @@
+import { IDepartment } from './../core/models/IDepartment';
+import { DepartmentsService } from './../shared/services/departments.service';
 import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from '../shared/services/employees.service';
 import { IEmployee } from '../core/models/IEmployee';
@@ -13,9 +15,10 @@ export class EmployeesComponent implements OnInit {
 
   employees: IEmployee[];
   kindEmploys: IKindEmploy[];
+  departments: IDepartment[];
   chooseEmployees: IEmployee[];
 
-  constructor(private _employeesService: EmployeesService,private _kindEmployService: kindEmployService) { }
+  constructor(private _employeesService: EmployeesService,private _kindEmployService: kindEmployService ,private _departmentsService: DepartmentsService) { }
 
   ngOnInit() {
     this._employeesService.getEmployees();
@@ -28,12 +31,26 @@ export class EmployeesComponent implements OnInit {
     this._kindEmployService.kindEmploys.subscribe(kindEmploy =>{
     this.kindEmploys = kindEmploy;
     });
+
+    this._departmentsService.getDepartments();
+    this._departmentsService.departments.subscribe(departments => {
+    this.departments = departments;
+    });
     
   }
+  delEmploy(employ: IEmployee) {
+    this._employeesService.removeEmployee(employ.Id);
+   console.log(employ.Id);
+ }
+
+
+
 
   searchEmploy(keyw: string){
     this.employees = this.chooseEmployees.filter(employ => employ.HoTen.toLowerCase().includes(keyw.toLowerCase()));
   }
 
-
+  // searchDepart(keyw: string){
+  //   this.employees = this.chooseEmployees.filter(employ => employ.HoTen.toLowerCase().includes(keyw.toLowerCase()));
+  // }
 }
