@@ -17,40 +17,45 @@ export class EmployeesComponent implements OnInit {
   kindEmploys: IKindEmploy[];
   departments: IDepartment[];
   chooseEmployees: IEmployee[];
+  employeeAdding: IEmployee = {
+    Id: 0,
+    NhanVienId: 0,
+    HoTen: '',
+    DiaChi: '',
+    NgaySinh: new Date(),
+    GioiTinh: true,
+    LoaiNhanVienId: 0,
+    ChiNhanhId: 0,
+  };
 
-  constructor(private _employeesService: EmployeesService,private _kindEmployService: kindEmployService ,private _departmentsService: DepartmentsService) { }
+  constructor(private _employeesService: EmployeesService
+    , private _kindEmployService: kindEmployService, private _departmentsService: DepartmentsService) { }
 
   ngOnInit() {
     this._employeesService.getEmployees();
     this._employeesService.employees.subscribe(employees => {
-    this.employees = employees;
-    this.chooseEmployees = employees;  
+      this.employees = employees;
+      this.chooseEmployees = employees;
     });
 
     this._kindEmployService.getKindEmploys();
-    this._kindEmployService.kindEmploys.subscribe(kindEmploy =>{
-    this.kindEmploys = kindEmploy;
+    this._kindEmployService.kindEmploys.subscribe(kindEmploy => {
+      this.kindEmploys = kindEmploy;
     });
 
     this._departmentsService.getDepartments();
     this._departmentsService.departments.subscribe(departments => {
-    this.departments = departments;
+      this.departments = departments;
     });
-    
+
   }
   delEmploy(employ: IEmployee) {
     this._employeesService.removeEmployee(employ.Id);
-   console.log(employ.Id);
- }
-
-
-
-
-  searchEmploy(keyw: string){
+  }
+  searchEmploy(keyw: string) {
     this.employees = this.chooseEmployees.filter(employ => employ.HoTen.toLowerCase().includes(keyw.toLowerCase()));
   }
-
-  // searchDepart(keyw: string){
-  //   this.employees = this.chooseEmployees.filter(employ => employ.HoTen.toLowerCase().includes(keyw.toLowerCase()));
-  // }
+  addEmployee() {
+    // this._employeesService.createEmployee();
+  }
 }

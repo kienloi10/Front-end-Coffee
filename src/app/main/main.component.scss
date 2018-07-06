@@ -16,7 +16,8 @@ ng-sidebar {
     }
     p {
         height: 50px;
-        padding-top: 20px;       
+        padding-top: 20px; 
+        transition: 0.5s;     
         cursor: pointer;
     }
     p:hover {

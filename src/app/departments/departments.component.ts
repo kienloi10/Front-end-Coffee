@@ -10,15 +10,16 @@ import { IDepartment } from '../core/models/IDepartment';
 export class DepartmentsComponent implements OnInit {
   departments: IDepartment[];
   editDepartments: IDepartment[];
+  editDepartments2: IDepartment;
   chooseDeparts: IDepartment[];
   departAdding: IDepartment = {
     Id: 0,
     ChiNhanhId: '',
     TenChiNhanh: '',
     DiaChi: '',
-    NgayThanhLap: ''
+    NgayThanhLap: new Date()
   };
-  private keyw: string;
+
   constructor(private _departmentsService: DepartmentsService) { }
 
   ngOnInit() {
@@ -34,10 +35,9 @@ export class DepartmentsComponent implements OnInit {
     this._departmentsService.departments.subscribe(departments => {
     this.editDepartments = departments;
     });
-    console.log(depart.ChiNhanhId);
-    console.log(depart.DiaChi);
-    console.log(depart.TenChiNhanh);
-    console.log(depart.NgayThanhLap);
+    this.editDepartments2 = this.editDepartments.find(x => x.Id === depart.Id);
+    console.log(this.editDepartments2.ChiNhanhId);
+
   }
   delDepartment(depart: IDepartment) {
      this._departmentsService.removeDepartment(depart.Id);

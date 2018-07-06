@@ -1,115 +1,48 @@
 <div class="container" style="border-bottom: 0px; height: 50px;">
     <div class="row">
         <!-- input search -->
-        <div class="input-group col-md-11">
-            <input type="text" placeholder="Search..." [(ngModel)]="keyw" (keyup.enter)="searchEmploy(keyw)">
+        <div class="input-group col-md-9">
             <div class="input-group-btn">
-                <button class="btn btn-default searchBtn rainbow rainbow-1" >
+                <button class="btn btn-default searchBtn rainbow rainbow-1">
                     <i class="fas fa-search "></i>
                 </button>
             </div>
+            <input placeholder=" Search..." [(ngModel)]="keyw" (keyup.enter)="searchEmploy(keyw)">
         </div>
         <!-- button add -->
-        <button class="btn btn-default addBtn col-md-1" data-toggle="modal" data-target="#myModal" style="max-width: 90px;">ADD
-            <i class="fas fa-plus"></i>
-        </button>
-    </div>
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <!-- <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Employee Informations</h4>
-                </div>
-                <div class="modal-body">
-                    <p class="row">
-                        <span class="col-md-3">ID:</span>
-                        <input class="col-md-8"  type="text" placeholder="Ex: ...">
-                    </p>
-                    <p class="row">
-                        <span class="col-md-3">Name:</span>
-                        <input class="col-md-8"type="text" placeholder="Ex: HighLands Ha Noi">
-                    </p>
-                    <p class="row">
-                        <span class="col-md-3">Address:</span>
-                        <input class="col-md-8"  type="text" placeholder="Ex: 12 Hai Ba Trung">
-                    </p>
-                    <p class="row">
-                        <span class="col-md-3">Open Day:</span>
-                        <input class="col-md-8"  type="date">
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Confirm</button>
-                    <button type="button" class="closeBtn btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div> -->
-
+        <div class="col-md-2">
+            <button class="btn btn-default addBtn" data-toggle="modal" data-target="#myModal">
+                <span>ADD</span>
+                <i class="fas fa-plus"></i>
+            </button>
         </div>
     </div>
-</div>
-<div class="container" style="color: #CF2212; font-size: 20px">
-    <div class="row">
-        <div class="col-md-1">ID</div>
-        <div class="col-md-1">NAME</div>
-        <div class="col-md-2">ADDRESS</div>
-        <div class="col-md-2">BIRTH</div>
-        <div class="col-md-1">SEX</div>
-        <div class="col-md-2">POSITION</div>
-        <div class="col-md-1">DEPARTMENT</div>
-    </div>
-</div>
-<div class="container" *ngFor="let employee of employees">
-    <div class="row">
-        <div class="col-md-1">{{ employee.NhanVienId }}</div>
-        <div class="col-md-1">{{ employee.HoTen | uppercase }}</div>
-        <div class="col-md-2">{{ employee.DiaChi }}</div>
-        <div class="col-md-2">{{ employee.NgaySinh | date }}</div>
-        <div class="col-md-1">{{ employee.GioiTinh | sexPipe }}</div>
-        <div class="col-md-2">{{ kindEmploys | positionPipe: employee.LoaiNhanVienId }}</div>
-        <div class="col-md-1">{{ departments | departmentPipe: employee.ChiNhanhId }}</div>
-        
-        <div class="col-md-2 action">
-            <button class="delBtn" (click)='delEmploy(employee)'>
-                <i class="fas fa-trash-alt"></i>
-            </button>
-            <button class="editBtn" data-toggle="modal" data-target="#myEditModal" style="max-width: 90px;">
-                <i class="fas fa-edit"></i>
-            </button>
-            <div id="myEditModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Edit Department Informations</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p class="row">
-                                <span class="col-md-3">ID:</span>
-                                <input class="col-md-8" type="text">
-                            </p>
-                            <p class="row">
-                                <span class="col-md-3">Name:</span>
-                                <input class="col-md-8" type="text">
-                            </p>
-                            <p class="row">
-                                <span class="col-md-3">Address:</span>
-                                <input class="col-md-8" type="text">
-                            </p>
-                            <p class="row">
-                                <span class="col-md-3">Open Day:</span>
-                                <input class="col-md-8" type="date">
-                            </p>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Confirm</button>
-                            <button type="button" class="closeBtn btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
+    <!-- employee tags -->
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let employee of employees" class="emp col-md-3">
+                <h3>INFORMATION</h3>
+                <img src="../../assets/personIcon.jpg" alt="">
+                <p>
+                    <b>ID: </b>{{ employee.NhanVienId }}</p>
+                <p>
+                    <b>Full name: </b>{{ employee.HoTen | uppercase }}</p>
+                <p>
+                    <b>Address: </b>{{ employee.DiaChi }}</p>
+                <p>
+                    <b>Birth: </b>{{ employee.NgaySinh | date }}</p>
+                <p>
+                    <b>Sex: </b>{{ employee.GioiTinh | sexPipe }}</p>
+                <p>
+                    <b>Position: </b>{{ kindEmploys | positionPipe: employee.LoaiNhanVienId }}</p>
+                <p>
+                    <b>Department: </b>{{ departments | departmentPipe: employee.ChiNhanhId }}</p>
+                <button class="delBtn" (click)="delEmploy(employee)">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+                <button class="editBtn">
+                    <i class="fas fa-edit"></i>
+                </button>
             </div>
         </div>
     </div>

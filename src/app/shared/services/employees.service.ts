@@ -36,9 +36,9 @@ export class EmployeesService {
       this._employees.next(this._employees.getValue());
     });
   }
-  createDepartment(enployAdd: IEmployee) {
-    return this.http.post('http://localhost:4147/api/ChiNhanh/create', enployAdd).subscribe(() => {
-      this._employees.getValue().push(enployAdd);
+  createEmployee(employAdd: IEmployee) {
+    return this.http.post('http://localhost:4147/api/nhanvien/create', employAdd).subscribe(() => {
+      this._employees.getValue().push(employAdd);
       const newEmploy = this._employees.getValue();
       this._employees.next(newEmploy);
     });
@@ -50,8 +50,5 @@ export class EmployeesService {
 //       this._departments.next(newDepart);
 //     });
 //   }
-  searchEmployee(keyw: string) {
-
-  }
 
 }

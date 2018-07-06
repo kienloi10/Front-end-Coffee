@@ -9,45 +9,66 @@ input {
     outline: none;
     border-radius: 12px;
 }
-.searchBtn {
-    outline: none;
-    border: #CF2212 1px solid; 
-    color: black;
-    width: 80px;
+.input-group {
+    margin-left: 10px;
+    float: left;
+    input {
+        outline: none;
+        width: 0;
+        height: 40px;
+        transition: 0.5s;
+        border: none;
+        text-align: center;
+    }
+    .searchBtn {
+        outline: none;
+        border: #CF2212 1px solid; 
+        height: 40px;
+        color: black;
+        width: 80px;
+        border-radius: 12px;
+        background-color: white;
+    }   
+}
+.input-group:hover input {  
     border-radius: 12px;
-    background-color: white;
+    border: #CF2212 1px solid; 
+    width: 300px;
 }
 .addBtn {
     border: #CF2212 1px solid; 
     color: black;
-    width: 80px;
+    width: 40px;
     border-radius: 12px;
     background-color: white;
     font-weight: bold;
+    transition: 0.3s;
+    span {
+        display: none;
+    }
 }
 .addBtn:hover{
     color: white;
-    background-color: $color-logo;  
-}
-.searchBtn:hover {
-    color: white;
+    background-color: $color-logo;
+    width: 135px;
+    span {
+        display: inline;
+    }
 }
 .rainbow-1:hover{
     background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
     animation:slidebg 4s linear infinite;
 }
 .container {
-    font-size: 13px;
-    height: 70px;
+    font-size: 15px;
     margin: 10px;
     padding-top: 10px;
-    border-bottom: 1px $color-logo solid;
     cursor: pointer;
     .editBtn {
         float: right;
         height: 40px;
         margin: 0px;
-        width: 70px;
+        width: 50px;
         background-color: white;
         border: 1px $color-logo solid;
         -webkit-border-top-left-radius:42px;
@@ -56,12 +77,13 @@ input {
         -webkit-border-bottom-left-radius:42px;
         -moz-border-radius-bottomleft:42px;
         border-bottom-left-radius:42px;
+        transition: 0.5s;
         cursor: pointer;
     }
     .delBtn {
         float: right;
         height: 40px;
-        width: 70px;
+        width: 50px;
         margin: 0px;
         background-color: white;
         border: 1px $color-logo solid;
@@ -71,13 +93,17 @@ input {
         -webkit-border-bottom-right-radius:25px;
         -moz-border-radius-bottomright:25px;
         border-bottom-right-radius:25px;
+        transition: 0.5s;
         cursor: pointer;
     }
     .editBtn:hover {
         color: $color-logo;
+        width: 70px;
     }
     .delBtn:hover {
-        color: $color-logo;
+        color: white;
+        background-color: #CF2212;
+        width: 70px;
     }
     .closeBtn {
         background-color: #CF2212;
@@ -85,6 +111,45 @@ input {
     }
     .modal-body {
         margin-bottom: 10px;
+    }
+    .emp {
+        border: 1px $color-logo solid;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+        border-radius: 12px;
+        padding: 0px;
+        padding-bottom: 10px;
+        min-width: 320px;
+        font-size: 15px;
+        transition: 0.5s;
+        h3 {
+            border-top-right-radius: 12px;
+            border-top-left-radius: 12px;
+            background-color: #EDEDF5;
+        }
+        img {
+            height: 160px;
+            width: 120px;
+            background-color: #EDEDF5;
+        }
+        p {
+            padding-left: 10px; 
+            text-align: left;
+        }
+        button {
+            margin-right: 10px;
+        }
+    }
+    .emp:hover {
+        background: #EDEDF5;
+        h3 {
+            background-color: white;
+            color: $color-logo;
+        }
+        box-shadow: 5px 5px 5px $color-logo;
+        -moz-box-shadow: 5px 5px 5px $color-logo;
+        -webkit-box-shadow: 5px 5px 5px $color-logo;
     }
 }
 @keyframes slidebg {

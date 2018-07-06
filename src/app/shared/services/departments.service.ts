@@ -22,8 +22,8 @@ export class DepartmentsService {
       this._departments.next(departments);
     });
   }
-  getDepartmentsByIdFromServer(id:number) {
-    this.http.get('http://localhost:4147/api/ChiNhanh/GetById/' +id).subscribe(res => {
+  getDepartmentsByIdFromServer(id: number) {
+    this.http.get('http://localhost:4147/api/ChiNhanh/GetById/' + id).subscribe(res => {
       const departments = res.json();
       this._departments.next(departments);
     });
@@ -49,9 +49,6 @@ export class DepartmentsService {
       const newDepart = this._departments.getValue();
       this._departments.next(newDepart);
     });
-  }
-  searchDepart(keyw: string) {
-
   }
 
 }

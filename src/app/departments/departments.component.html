@@ -1,17 +1,18 @@
 <div class="container" style="border-bottom: 0px; height: 50px;">
     <div class="row">
         <!-- input search -->
-        <div class="input-group col-md-8">
-            <input type="text" placeholder="Search..." [(ngModel)]="keyw" (keyup.enter)="searchDepart(keyw)">
+        <div class="input-group col-md-9">
             <div class="input-group-btn">
                 <button class="btn btn-default searchBtn rainbow rainbow-1" (click)="searchDepart(keyw)">
                     <i class="fas fa-search "></i>
                 </button>
             </div>
+            <input placeholder=" Search..." [(ngModel)]="keyw" (keyup.enter)="searchDepart(keyw)">
         </div>
         <!-- button add -->
         <div class="col-md-2">
-            <button class="btn btn-default addBtn" data-toggle="modal" data-target="#myModal" style="width: 140px;">ADD
+            <button class="btn btn-default addBtn" data-toggle="modal" data-target="#myModal">
+                <span>ADD</span>
                 <i class="fas fa-plus"></i>
             </button>
         </div>
@@ -62,7 +63,7 @@
     </div>
 </div>
 <!-- column data -->
-<div class="container" *ngFor="let department of departments">
+<div class="container main" *ngFor="let department of departments">
     <div class="row">
         <div class="col-md-1">{{ department.ChiNhanhId }}</div>
         <div class="col-md-2">{{ department.TenChiNhanh | uppercase }}</div>

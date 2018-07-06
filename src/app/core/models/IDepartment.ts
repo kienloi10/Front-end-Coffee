@@ -3,6 +3,6 @@ export interface IDepartment {
     ChiNhanhId: String;
     TenChiNhanh: String;
     DiaChi: String;
-    NgayThanhLap: String;
+    NgayThanhLap: Date;
 
 }
