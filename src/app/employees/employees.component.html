@@ -16,6 +16,78 @@
                 <i class="fas fa-plus"></i>
             </button>
         </div>
+        <!-- add modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Employee Informations</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="row">
+                            <span class="col-md-3">ID:</span>
+                            <input class="col-md-8" [(ngModel)]="employeeAdding.NhanVienId" type="text" placeholder="Ex: ...">
+                        </p>
+                        <p class="row">
+                            <span class="col-md-3">Full name:</span>
+                            <input class="col-md-8" [(ngModel)]="employeeAdding.HoTen" type="text" placeholder="Ex: Nguyễn Văn A">
+                        </p>
+                        <p class="row">
+                            <span class="col-md-3">Address:</span>
+                            <input class="col-md-8" [(ngModel)]="employeeAdding.DiaChi" type="text" placeholder="Ex: 12 Hai Ba Trung">
+                        </p>
+                        <p class="row">
+                            <span class="col-md-3">Birth:</span>
+                            <input class="col-md-8" [(ngModel)]="employeeAdding.NgaySinh" type="date">
+                        </p>
+                        <div class="row">
+                            <span class="col-md-3">Sex:</span>
+                            <div class="col-md-8">
+                                <label class="radio-inline">
+                                    <input type="radio" name="optradio">Male</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="optradio">Female</label>
+                            </div>
+                            <!-- <input class="col-md-8" [(ngModel)]="employeeAdding.GioiTinh"> -->
+                        </div>
+                        <div class="row">
+                            <span class="col-md-3">Position:</span>
+                            <div class="dropdown col-md-8">
+                                <button class="btnPosition btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Position
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li *ngFor="let kind of kindEmploys">
+                                        <p>{{kind.TenLoai}}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <input class="col-md-8" [(ngModel)]="employeeAdding.LoaiNhanVienId"> -->
+                        </div>
+                        <div class="row">
+                            <span class="col-md-3">Department:</span>
+                            <div class="dropdown col-md-8">
+                                <button class="btnDepartment btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Department
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li *ngFor="let dep of departments">
+                                        <p>{{dep.TenLoai}}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="addEmployee(employeeAdding)">Confirm</button>
+                        <button type="button" class="closeBtn btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
     <!-- employee tags -->
     <div class="container">

@@ -55,7 +55,7 @@ export class EmployeesComponent implements OnInit {
   searchEmploy(keyw: string) {
     this.employees = this.chooseEmployees.filter(employ => employ.HoTen.toLowerCase().includes(keyw.toLowerCase()));
   }
-  addEmployee() {
-    // this._employeesService.createEmployee();
+  addEmployee(employeeAdding) {
+    // this._employeesService.createEmployee(employeeAdding);
   }
 }
